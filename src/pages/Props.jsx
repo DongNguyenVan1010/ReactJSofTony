@@ -22,7 +22,6 @@ function Button({ buttonText = 'Rest Operator', children, ...restProps}) {
 
 function Props({ firstName, lastName, age = 18, ...restProps }) {
 
-  console.log('Props: ', restProps)
   return (
     <div>
       <h2>Props</h2> <br />

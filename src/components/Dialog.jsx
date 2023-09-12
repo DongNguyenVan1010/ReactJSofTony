@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // naming operator
 function Dialog({ children, onSubmit, onCancel, btnCancel = 'Cancel', btnSubmit = 'Submit', component, component2: ButtonComponent}) {
-
   return (
     <div>
 

@@ -4,7 +4,9 @@ function State() {
   const [isLoading, setIsLoading] = useState(false); // local variable
   const [timeStamp, setTimeStamp] = useState(Date.now());
   const [message, setMessage] = React.useState({
-    text: ''
+    text: '',
+    id: 1,
+    firstName: 'tony'
   }); // memory A
 
   function handleToggleLoading() {
@@ -14,13 +16,25 @@ function State() {
 
   function updateMessageObject() {
     // message.text = `Text ${Date.now()}`; // // memory A
-    const newMessasge = {
-      text: `Text ${Date.now()}`
-    }; // memory ?
-    setMessage(newMessasge)
+    // const newMessasge = {
+    //   ...message, // copy all properties
+    //   text: `Text ${Date.now()}`, 
+    // }; // memory ?
+    // setMessage(newMessasge)
+    
+    // updater function
+    setMessage(prevState => {
+      // const newMessasge = {
+      //   ...prevState, // copy all properties
+      //   text: `Text ${Date.now()}`, 
+      // };
+      // return newMessasge
+      return {
+        ...prevState,
+        text: `Text ${Date.now()}`,
+      }
+    })
   }
-
-  console.log('State')
 
   return (
     <div>

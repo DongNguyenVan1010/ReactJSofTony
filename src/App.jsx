@@ -1,8 +1,14 @@
+import React from 'react';
+
 import Props from "./pages/Props";
 import State from "./pages/State";
+import Component from "./pages/Component";
+import ComposeComponent from './pages/ComposeComponent';
 
 // react component or function react component
 function App() {
+  // states
+  const [forceUpdate, setForceUpdate] = React.useState(Date.now()); // local variable
   // variables
   const sum = 1 + 2;
   const spreadBook = {
@@ -19,6 +25,15 @@ function App() {
     <> 
       <div>Sum: {sum} </div>
       <br />
+      Plus: {forceUpdate}
+      <button 
+        type="button" 
+        onClick={() => {
+          setForceUpdate(Date.now())
+        }}
+      >
+        Force Update
+      </button> <br/>
       <div>Express: {1 + 22}</div> <br/>
       {expressionJSX}
 
@@ -29,7 +44,11 @@ function App() {
 
       <Props firstName="tony" lastName="nguyen" age={20} {...spreadBook} />
 
-      <State />
+      <State key={forceUpdate} />
+
+      <Component />
+
+      <ComposeComponent />
     </>
   )
 }
