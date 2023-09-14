@@ -4,11 +4,12 @@ import Props from "./pages/Props";
 import State from "./pages/State";
 import Component from "./pages/Component";
 import ComposeComponent from './pages/ComposeComponent';
+import ItemBox from './components/ItemBox';
 
 // react component or function react component
 function App() {
   // states
-  const [forceUpdate, setForceUpdate] = React.useState(Date.now()); // local variable
+  const [ forceUpdate, setForceUpdate ] = React.useState(Date.now()); // local variable
   // variables
   const sum = 1 + 2;
   const spreadBook = {
@@ -17,38 +18,44 @@ function App() {
   }
 
   // expression
-  const expressionJSX = <h1>I love JS {Date.now()}</h1> // JSX
+  const expressionJSX = <h1>I love JS { Date.now() }</h1> // JSX
 
   // JSX
   return (
     // React Fragment
-    <> 
-      <div>Sum: {sum} </div>
+    <>
+      <div>Sum: { sum } </div>
       <br />
-      Plus: {forceUpdate}
-      <button 
-        type="button" 
-        onClick={() => {
+      Plus: { forceUpdate }
+      <button
+        type="button"
+        onClick={ () => {
           setForceUpdate(Date.now())
-        }}
+        } }
       >
         Force Update
-      </button> <br/>
-      <div>Express: {1 + 22}</div> <br/>
-      {expressionJSX}
+      </button> <br />
+      <div>Express: { 1 + 22 }</div> <br />
+      { expressionJSX }
 
-      {/* element must be closed */}
+      {/* element must be closed */ }
       <input type="text" />
       <div />
 
 
-      <Props firstName="tony" lastName="nguyen" age={20} {...spreadBook} />
+      <Props firstName="tony" lastName="nguyen" age={ 20 } { ...spreadBook } />
 
-      <State key={forceUpdate} />
+      <State key={ forceUpdate } />
 
       <Component />
 
       <ComposeComponent />
+
+
+
+      <ItemBox />
+      <ItemBox />
+
     </>
   )
 }
