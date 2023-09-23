@@ -1,0 +1,75 @@
+.typography_heading {
+  font-size: 24px;
+  width: 100%;
+}
+
+.itemBox_content {
+  border-style: solid;
+  border-color: orange;
+}
+
+.itemBox {
+  width: 50%;
+}
+
+.itemBox + .itemBox {
+  margin-top: 10px;
+}
+
+.itemBox_title {
+  background-color: orange;
+  padding: 10px;
+  color: #fff
+}
+
+.button {
+  outline: none;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(.645,.045,.355,1);
+  user-select: none;
+  touch-action: manipulation;
+  line-height: 1.5714285714285714;
+  font-size: 14px;
+  height: 32px;
+  padding: 4px 15px;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgba(5,145,255,.1);
+}
+
+.button:hover {
+  background-color: #4096ff;
+}
+
+
+.itemBox_description {
+  padding: 10px;
+}
+
+.itemBox_action {
+  display:  flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.button_danger {
+  background-color: #ff4d4f;
+  box-shadow: 0 2px 0 rgba(255,38,5,.06);
+}
+
+.button_danger:hover {
+  background-color: #ff7875;
+}
+
+.typography_heading {
+  color: #f00;
+}

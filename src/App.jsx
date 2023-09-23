@@ -4,7 +4,9 @@ import Props from "./pages/Props";
 import State from "./pages/State";
 import Component from "./pages/Component";
 import ComposeComponent from './pages/ComposeComponent';
-import ItemBox from './components/ItemBox';
+import ConditionalRendering from './pages/ConditionalRendering';
+import ListKeys from './pages/ListKeys';
+import GenerateBoxKhuong from './pages/GenerateBoxKhuong';
 
 // react component or function react component
 function App() {
@@ -51,11 +53,11 @@ function App() {
 
       <ComposeComponent />
 
+      <ConditionalRendering />
 
+      <ListKeys />
 
-      <ItemBox />
-      <ItemBox />
-
+      <GenerateBoxKhuong />
     </>
   )
 }
