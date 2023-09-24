@@ -10,7 +10,7 @@ export default function () {
   return (
     <div className="box">
       <Header title={itemCount == 0 ? "No Items" : `${itemCount} Items`} />
-      <Button extras={{ onClick: handleClick }}>Increment</Button>
+      <Button onClick={handleClick} >Increment</Button>
     </div>
   );
 }
