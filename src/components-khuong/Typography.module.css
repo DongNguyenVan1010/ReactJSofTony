@@ -1,0 +1,25 @@
+.defaults {
+  margin-top: 10px;
+}
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+.error {
+  color: var(--error);
+}
+.info {
+  color: var(--info);
+}
+.success {
+  color: var(--success);
+}
+.block {
+  display: block;
+}
+.hidden {
+  visibility: hidden;
+}

@@ -1,9 +1,24 @@
 import React from "react";
-import "./Item.css";
-export default function Button(props) {
+import "../item.css";
+import clsx from "clsx";
+import style from "./Button.module.css";
+export default function Button({
+  styles,
+  children,
+  disabled = false,
+  small,
+  type = "",
+  ...rest
+}) {
   return (
-    <button {...props.extras} style={props.styles} className="button">
-      {props.children}
+    <button
+      {...rest}
+      type={type}
+      style={styles}
+      disabled={disabled}
+      className={clsx("btn", small && style.small)}
+    >
+      {children}
     </button>
   );
 }

@@ -1,0 +1,27 @@
+.fullWidth {
+  width: 100%;
+}
+.primary {
+  border: 1px solid var(--primary);
+}
+.secondary {
+  border: 1px solid var(--secondary);
+}
+.error {
+  border: 1px solid var(--error);
+}
+.info {
+  border: 1px solid var(--info);
+}
+.success {
+  border: 1px solid var(--success);
+}
+.dense {
+  margin: 20px 0px;
+}
+.normal {
+  margin: 10px 0px;
+}
+.inlined {
+  display: inline-block;
+}

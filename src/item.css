@@ -2,13 +2,25 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+/* Global CSS VAR */
+:root {
+  --primary: #1565c0;
+  --secondary: #7b1fa2;
+  --error: #c62828;
+  --warning: #e65100;
+  --info: #01579b;
+  --success: #1b5e20;
+}
+.inline {
+  display: inline-block;
+}
 .box {
   border: 1px solid rgba(128, 128, 128, 0.5);
   border-radius: 5px;
   width: 60%;
   margin-bottom: 10px;
 }
-.button {
+.btn {
   margin: 20px;
   background-color: transparent;
   border: 1px solid gray;
@@ -17,7 +29,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-button:hover {
+.btn:hover {
   background: gray;
   color: white;
 }
@@ -33,3 +45,4 @@ button:hover {
   box-shadow: inset;
   margin: -1px 0px 0px -1px;
 }
+/* Global CSS VAR */
