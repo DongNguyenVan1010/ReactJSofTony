@@ -8,6 +8,9 @@ import ConditionalRendering from "./pages/ConditionalRendering";
 import ListKeys from "./pages/ListKeys";
 import GenerateBoxKhuong from "./pages/GenerateBoxKhuong";
 import BoxGeneratorHuy from "./pages/BoxGeneratorHuy";
+import LiftingStateUpDrillng from './pages/LiftingStateUpDrillng';
+import LiftingStateUpPattern from './pages/LiftingStateUpPattern';
+import Form from './pages/Form';
 
 // react component or function react component
 function App() {
@@ -52,6 +55,21 @@ function App() {
       <ListKeys />
       <GenerateBoxKhuong />
       <BoxGeneratorHuy />
+
+      <LiftingStateUpDrillng />
+      <LiftingStateUpPattern />
+
+      <Form />
+
+
+
+
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }
