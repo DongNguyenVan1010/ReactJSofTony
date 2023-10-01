@@ -11,6 +11,8 @@ import BoxGeneratorHuy from "./pages/BoxGeneratorHuy";
 import LiftingStateUpDrillng from './pages/LiftingStateUpDrillng';
 import LiftingStateUpPattern from './pages/LiftingStateUpPattern';
 import Form from './pages/Form';
+import UseState from "./pages/UseState";
+import UseReducer from './pages/UseReducer';
 
 // react component or function react component
 function App() {
@@ -60,6 +62,10 @@ function App() {
       <LiftingStateUpPattern />
 
       <Form />
+
+     <UseState />
+
+     <UseReducer />
 
 
 
