@@ -1,12 +1,12 @@
 import React from 'react';
 
-// CONSTANTS
+// CONSTANST
 const ADD_TODO = 'TODO/ADD_TODO';
 const SHOW_LOADING = 'TODO/SHOW_LOADING';
 const HIDE_LOADING = 'TODO/HIDE_LOADING';
 const SHOW_ERROR = 'TODO/SHOW_ERROR';
 
-// initial state
+// initialState
 const initialState = {
   todo: [],
   isLoading: false,
@@ -40,35 +40,36 @@ function showError(payload) {
   }
 }
 
-// reducer
-function reducer(state = initialState, action) {
-  switch(action.type) {
+function reducer(state = initialState, { type, payload }) {
+  switch(type) {
     case ADD_TODO:
       return {
         ...state,
-        todo: [...state.todo, action.payload]
+        todo: [...state.todo, payload]
       }
-    case SHOW_LOADING:
+    case SHOW_LOADING: {
       return {
         ...state,
         isLoading: true
       }
-    case HIDE_LOADING:
+    }
+    case HIDE_LOADING: {
       return {
         ...state,
         isLoading: false
       }
+    }
     case SHOW_ERROR: {
       return {
         ...state,
-        error: action.payload
+        error: payload
       }
     }
-    default: 
+    default:
       return state
   }
 }
-
+ 
 function UseReducer() {
   const inputRef = React.useRef();
   // const [todo, setTodo] = React.useState([]);
@@ -82,35 +83,39 @@ function UseReducer() {
       return; // return early
     }
 
-    dispatch(showError(null));
-    dispatch(showLoading());
-
-    const todo = {
+    const todoItem = {
       id: Date.now(),
       title: inputRef.current.value
     }
-    dispatch(addTodo(todo))
+
+    dispatch(showLoading());
+    dispatch(addTodo(todoItem))
 
     setTimeout(() => {
+      dispatch(showError(null))
       dispatch(hideLoading());
-    }, 300)
+    }, 300);
+
 
     // if(!inputRef.current.value) {
     //   setError(true);
     //   return; // return early
     // }
 
-    // setError(null);
-    // setIsLoading(true);
-    // const todo = {
+    // const todoItem = {
     //   id: Date.now(),
     //   title: inputRef.current.value
     // }
-    // setTodo(prevState => [...prevState, todo]); // add todo, delete todo, update todo
+
+    // setIsLoading(true);
+
+    // setTodo(prevState => [...prevState, todoItem]); // add todo, delete todo, update todo
 
     // setTimeout(() => {
+    //   setError(null);
     //   setIsLoading(false);
-    // }, 300)
+    // }, 300);
+
   }
 
   return (

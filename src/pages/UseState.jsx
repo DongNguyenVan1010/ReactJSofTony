@@ -19,10 +19,10 @@ function UseState() {
   const [number, setNumber] = React.useState(0);
 
   // Passing the initial state directly: createInitialTodos() is only used for the initial render, you’re still calling this function on every render
-  // const [todos, setTodos] = React.useState(createInitialTodo());
+  // const [lazyInitialState, setLazyInitialState] = React.useState(createInitialTodo());
   
   // Passing the initializer function: you’re passing createInitialTodos, which is the function itself. If you pass a function to useState, React will only call it during initialization.
-  // const [todos, setTodos] = React.useState(createInitialTodo);
+  const [todos, setTodos] = React.useState(createInitialTodo);
 
   
   const inputRef = React.useRef();
