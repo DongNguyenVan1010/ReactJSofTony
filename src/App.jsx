@@ -1,5 +1,4 @@
 import React from "react";
-import BoxColorKhuong from "./pages/BoxColorKhuong";
 import Props from "./pages/Props";
 import State from "./pages/State";
 import Component from "./pages/Component";
@@ -64,7 +63,6 @@ function App() {
       <UseState />
       <UseReducer />
       <BoxesContainer />
-      <BoxColorKhuong />
       <br />
       <br />
       <br />
