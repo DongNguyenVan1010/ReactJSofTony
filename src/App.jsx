@@ -13,6 +13,9 @@ import LiftingStateUpPattern from './pages/LiftingStateUpPattern';
 import Form from './pages/Form';
 import UseState from "./pages/UseState";
 import UseReducer from './pages/UseReducer';
+import EffectHook from './pages/EffectHook';
+import ContextTodo from './pages/ContextTodo';
+import RefHook from "./pages/RefHook";
 
 // react component or function react component
 function App() {
@@ -66,6 +69,12 @@ function App() {
      <UseState />
 
      <UseReducer />
+
+     <EffectHook />
+     
+     <ContextTodo />
+
+     <RefHook />
 
 
 

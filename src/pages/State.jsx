@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useTodoContext } from '../context/TodoContext';
 
 function State() {
+  const { count } = useTodoContext();
+
   const [isLoading, setIsLoading] = useState(false); // local variable
   const [timeStamp, setTimeStamp] = useState(Date.now());
   const [message, setMessage] = React.useState({
@@ -35,6 +38,8 @@ function State() {
       }
     })
   }
+
+  console.log('STATE-------------------', count)
 
   return (
     <div>

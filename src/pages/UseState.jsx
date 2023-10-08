@@ -1,5 +1,8 @@
 import React from 'react'
 
+// reducer
+import { reducer, initialState, showError, showLoading } from '../reducer/todo.reducer';
+
 // lazy initial state
 function createInitialTodo() {
   console.log('Passing the initial state directly')
@@ -16,7 +19,10 @@ function createInitialTodo() {
 }
 
 function UseState() {
+  const [{ todo: todoReducer, isLoading, error }, dispatch] = React.useReducer(reducer, initialState);
   const [number, setNumber] = React.useState(0);
+
+  console.log('todo: ', todoReducer)
 
   // Passing the initial state directly: createInitialTodos() is only used for the initial render, you’re still calling this function on every render
   // const [lazyInitialState, setLazyInitialState] = React.useState(createInitialTodo());

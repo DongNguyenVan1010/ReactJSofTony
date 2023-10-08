@@ -31,8 +31,6 @@ function LiftingStateUpPattern() {
     })
   }
 
-  console.log("form: ")
-
   return (
     <div>
       <h2>LiftingStateUpPattern</h2>

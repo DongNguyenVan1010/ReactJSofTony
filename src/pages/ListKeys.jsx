@@ -1,6 +1,12 @@
 import React from 'react'
+import { useTodoContext } from '../context/TodoContext';
 
 function ListKeys() {
+  const { todos } = useTodoContext();
+  console.log('ListKeys: ', {
+    todos
+  })
+
   const [products, setProducts] = React.useState([
     {
       id: 1,

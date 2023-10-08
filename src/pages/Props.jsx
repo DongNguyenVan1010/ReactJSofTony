@@ -1,5 +1,6 @@
 import React from 'react'
 import Dialog from '../components/Dialog'
+import { useTodoContext } from '../context/TodoContext'
 
 // default parameter
 // destructuring object
@@ -21,6 +22,7 @@ function Button({ buttonText = 'Rest Operator', children, ...restProps}) {
 
 
 function Props({ firstName, lastName, age = 18, ...restProps }) {
+  const { addTodo } = useTodoContext();
 
   return (
     <div>
@@ -49,6 +51,10 @@ function Props({ firstName, lastName, age = 18, ...restProps }) {
       >
         Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
       </Dialog>
+
+      <button type="button" onClick={addTodo}>
+        Add todo
+      </button>
      
     </div>
   )

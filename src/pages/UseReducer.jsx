@@ -1,75 +1,8 @@
 import React from 'react';
 
-// CONSTANST
-const ADD_TODO = 'TODO/ADD_TODO';
-const SHOW_LOADING = 'TODO/SHOW_LOADING';
-const HIDE_LOADING = 'TODO/HIDE_LOADING';
-const SHOW_ERROR = 'TODO/SHOW_ERROR';
+// reducer
+import { reducer, initialState, showError, showLoading, addTodo, hideLoading } from '../reducer/todo.reducer';
 
-// initialState
-const initialState = {
-  todo: [],
-  isLoading: false,
-  error: null
-}
-
-// action creator
-function addTodo(data) {
-  return {
-    type: ADD_TODO,
-    payload: data
-  }
-}
-
-function showLoading() {
-  return {
-    type: SHOW_LOADING
-  }
-}
-
-function hideLoading() {
-  return {
-    type: HIDE_LOADING
-  }
-}
-
-function showError(payload) {
-  return {
-    type: SHOW_ERROR,
-    payload
-  }
-}
-
-function reducer(state = initialState, { type, payload }) {
-  switch(type) {
-    case ADD_TODO:
-      return {
-        ...state,
-        todo: [...state.todo, payload]
-      }
-    case SHOW_LOADING: {
-      return {
-        ...state,
-        isLoading: true
-      }
-    }
-    case HIDE_LOADING: {
-      return {
-        ...state,
-        isLoading: false
-      }
-    }
-    case SHOW_ERROR: {
-      return {
-        ...state,
-        error: payload
-      }
-    }
-    default:
-      return state
-  }
-}
- 
 function UseReducer() {
   const inputRef = React.useRef();
   // const [todo, setTodo] = React.useState([]);
