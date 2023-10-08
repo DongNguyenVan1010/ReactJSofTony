@@ -1,5 +1,4 @@
 import React from "react";
-
 import Props from "./pages/Props";
 import State from "./pages/State";
 import Component from "./pages/Component";
@@ -8,14 +7,15 @@ import ConditionalRendering from "./pages/ConditionalRendering";
 import ListKeys from "./pages/ListKeys";
 import GenerateBoxKhuong from "./pages/GenerateBoxKhuong";
 import BoxGeneratorHuy from "./pages/BoxGeneratorHuy";
-import LiftingStateUpDrillng from './pages/LiftingStateUpDrillng';
-import LiftingStateUpPattern from './pages/LiftingStateUpPattern';
-import Form from './pages/Form';
+import LiftingStateUpDrillng from "./pages/LiftingStateUpDrillng";
+import LiftingStateUpPattern from "./pages/LiftingStateUpPattern";
+import Form from "./pages/Form";
 import UseState from "./pages/UseState";
 import UseReducer from './pages/UseReducer';
 import EffectHook from './pages/EffectHook';
 import ContextTodo from './pages/ContextTodo';
 import RefHook from "./pages/RefHook";
+import BoxesContainer from "./pages/BoxColorHuy";
 
 // react component or function react component
 function App() {
@@ -60,15 +60,10 @@ function App() {
       <ListKeys />
       <GenerateBoxKhuong />
       <BoxGeneratorHuy />
-
       <LiftingStateUpDrillng />
       <LiftingStateUpPattern />
-
       <Form />
 
-     <UseState />
-
-     <UseReducer />
 
      <EffectHook />
      
@@ -80,6 +75,9 @@ function App() {
 
 
 
+      <UseState />
+      <UseReducer />
+      <BoxesContainer />
       <br />
       <br />
       <br />

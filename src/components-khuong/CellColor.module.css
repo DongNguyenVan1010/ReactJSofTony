@@ -1,0 +1,22 @@
+.cellcolor {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  height: 25vw;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.red {
+  background-color: red;
+}
+.gold {
+  background-color: gold;
+}
+.aqua {
+  background-color: aqua;
+}
+.purple {
+  background-color: purple;
+}
