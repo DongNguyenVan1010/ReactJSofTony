@@ -16,36 +16,57 @@ import EffectHook from './pages/EffectHook';
 import ContextTodo from './pages/ContextTodo';
 import RefHook from "./pages/RefHook";
 import BoxesContainer from "./pages/BoxColorHuy";
+import PerformanceHook from './pages/PerformanceHook'
 
 // react component or function react component
 function App() {
   // states
-  const [forceUpdate, setForceUpdate] = React.useState(Date.now()); // local variable
+  const [forceUpdate, setForceUpdate] = React.useState(0); // local variable
   // variables
   const sum = 1 + 2;
   const spreadBook = {
     name: "one piece",
     price: 20,
   };
+  const [author, setAuthor] = React.useState({
+    name: "tony",
+    age: 20,
+  });
 
   // expression
   const expressionJSX = <h1>I love JS {Date.now()}</h1>; // JSX
+
+  const handleDeleteAuthor = React.useCallback(() => {
+    console.log('handleDeleteAuthor', forceUpdate)
+      // code logic
+      //aadsa
+  }, [forceUpdate]);
+
+  const todos = []
+
+  const resCount = React.useMemo(() => {
+    return todos.filter(todo => todo.completed).length
+  }, [todos]); // 100
+
+  console.log('forceUpdate: ', forceUpdate, resCount)
 
   // JSX
   return (
     // React Fragment
     <>
+      ResCount: {resCount}
       <div>Sum: {sum} </div>
       <br />
       Plus: {forceUpdate}
       <button
         type="button"
         onClick={() => {
-          setForceUpdate(Date.now());
+          setForceUpdate(prevState => prevState + 1);
         }}
       >
         Force Update
       </button>{" "}
+      
       <br />
       <div>Express: {1 + 22}</div> <br />
       {expressionJSX}
@@ -78,6 +99,26 @@ function App() {
       <UseState />
       <UseReducer />
       <BoxesContainer />
+
+
+      <button
+        type="button"
+        onClick={() => {
+         setAuthor({
+            ...author,
+            name: `title ${Date.now()}`
+            // age: 21,
+         })
+        }}
+      >
+       Update Author
+      </button>{" "}
+
+      <PerformanceHook 
+        name={author.name} 
+        age={author.age} 
+        handleDeleteAuthor={handleDeleteAuthor} 
+      />
       <br />
       <br />
       <br />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from '../components/Button';
 
 function RefHook() {
   // let refList = React.useRef(() => 1);
@@ -6,6 +7,15 @@ function RefHook() {
   const [, setForceUpdate] = React.useState(Date.now());
   const refCount = React.useRef(0); // keep data between renders component
   const refInput = React.useRef(null);
+  const buttonRef = React.useRef(null);
+
+  React.useEffect(() => {
+    console.log('refHook: useEffect: ')
+
+    if(count === 50) {
+      refCount.current = count;
+    }
+  }, [count])
 
   function handleForceUpdate() {
     setForceUpdate(Date.now());
@@ -16,11 +26,6 @@ function RefHook() {
     setCount(refCount.current)
   }
 
-  React.useEffect(() => {
-    if(count === 50) {
-      refCount.current = count;
-    }
-  }, [count])
 
   function handleFocus() {
     refInput.current.focus();
@@ -31,6 +36,8 @@ function RefHook() {
     const lenght = refInput.current.value.length;
     refInput.current.setSelectionRange(0, lenght); // select text:  truong course
   }
+
+  console.log("12321")
 
   return (
     <div>
@@ -43,8 +50,26 @@ function RefHook() {
       <br />
 
       <input ref={refInput} type="text" />
+      <br />
+      <h3>forwardRef</h3>
+      <Button 
+        ref={buttonRef}
+        extras={{
+          onClick: () => {
+            buttonRef.current.changeColor();
+            buttonRef.current.changeText();
+          },
+          type: 'button',
+          id: 'forwardRef',
+        }}
+      >
+        forwardRef
+      </Button>
+      <br />
       <button type="button" onClick={handleFocus}>Focus</button>
       <button type="button" onClick={handleEdit}>Edit</button>
+
+
     </div>
   )
 }

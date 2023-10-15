@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { useTodoContext } from '../context/TodoContext';
 
+import {useResizeWindow} from '../hooks/useResizeWindow'
 function State() {
   const { count } = useTodoContext();
+
+  const { isSmallScreen } = useResizeWindow();
 
   const [isLoading, setIsLoading] = useState(false); // local variable
   const [timeStamp, setTimeStamp] = useState(Date.now());
@@ -44,6 +47,9 @@ function State() {
   return (
     <div>
       <h2>State</h2>
+      Width: {isSmallScreen ? 'small' : 'large'}
+
+      <br />
 
       Show Loading: {isLoading ? 'Loading ...' : 'No Loading'}
       <br />
