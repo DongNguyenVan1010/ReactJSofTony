@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, NavLink, Routes, Route } from "react-router-dom";
+
+// pages
 import Props from "./pages/Props";
 import State from "./pages/State";
 import Component from "./pages/Component";
@@ -17,6 +20,11 @@ import ContextTodo from './pages/ContextTodo';
 import RefHook from "./pages/RefHook";
 import BoxesContainer from "./pages/BoxColorHuy";
 import PerformanceHook from './pages/PerformanceHook'
+import User from "./pages/account/User";
+import Profile from "./pages/account/Profile";
+import Bio from "./pages/account/Bio";
+import Invoice from "./pages/account/Invoice";
+import UserDetail from "./pages/account/UserDetail";
 
 // react component or function react component
 function App() {
@@ -54,6 +62,65 @@ function App() {
   return (
     // React Fragment
     <>
+      <ul>
+        <li><Link to="state">State</Link></li>
+        <li>
+          <NavLink 
+            to="props" 
+            className={value => {
+              return `menu-item-${value.isActive ? 'selected' : 'unselected'}`
+            }}
+          >
+            Props
+          </NavLink>
+         </li>
+         <li><Link to="user">User</Link></li>
+      </ul>
+
+      <main>
+        <Routes>
+          <Route
+            path="/props" 
+            element={<Props firstName="tony" lastName="nguyen" age={20} {...spreadBook} />} 
+          />
+          <Route
+            path="/state" 
+            element={ <State key={forceUpdate} />} 
+          />
+          <Route
+            path="/user" 
+            element={<User />} 
+          >
+            <Route path="profile" element={<Profile />} />
+            <Route path="bio" element={<Bio />} />
+            <Route path="invoice" element={<Invoice />} />
+            {/* <Route path=":userId" element={<UserDetail />} /> */}
+          </Route>
+          <Route path="user/:userId/product/:productId" element={<UserDetail />} />
+
+          {/* <Route
+            path="/user/profile" 
+            element={<Profile />} 
+          />
+          <Route
+            path="/user/bio" 
+            element={<Bio />} 
+          />
+          <Route
+            path="/user/profile" 
+            element={<Profile />} 
+          />
+          <Route
+            path="/user/invoice" 
+            element={<Invoice />} 
+          /> */}
+
+
+        </Routes>
+      </main>
+
+      <hr />
+
       ResCount: {resCount}
       <div>Sum: {sum} </div>
       <br />
@@ -73,8 +140,8 @@ function App() {
       {/* element must be closed */}
       <input type="text" />
       <div />
-      <Props firstName="tony" lastName="nguyen" age={20} {...spreadBook} />
-      <State key={forceUpdate} />
+     
+     
       <Component />
       <ComposeComponent />
       <ConditionalRendering />

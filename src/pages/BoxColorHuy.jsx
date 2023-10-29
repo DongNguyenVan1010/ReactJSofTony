@@ -9,12 +9,22 @@ const BoxesContainer = () => {
     setColor(color);
   };
 
+  let color = '#f00';
+  if(status = 'done') {
+    color = '#0f0';
+  }
+  if (status = 'pending') {
+    color = '#00f';
+  }
+
   return (
     <div
+    className=""
       style={{
         display: "flex",
         flexWrap: "wrap",
         width: 600,
+        backgroundColor: color,
       }}
     >
       {colours.map(color => (
