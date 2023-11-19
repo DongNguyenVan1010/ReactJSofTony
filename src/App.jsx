@@ -25,6 +25,7 @@ import Profile from "./pages/account/Profile";
 import Bio from "./pages/account/Bio";
 import Invoice from "./pages/account/Invoice";
 import UserDetail from "./pages/account/UserDetail";
+import TestRefulApi from "./pages/TestRefulApi";
 
 // react component or function react component
 function App() {
@@ -75,6 +76,7 @@ function App() {
           </NavLink>
          </li>
          <li><Link to="user">User</Link></li>
+         <li><Link to="test-reful-api">test-reful-api</Link></li>
       </ul>
 
       <main>
@@ -97,7 +99,7 @@ function App() {
             {/* <Route path=":userId" element={<UserDetail />} /> */}
           </Route>
           <Route path="user/:userId/product/:productId" element={<UserDetail />} />
-
+          <Route path="test-reful-api" element={<TestRefulApi />} />
           {/* <Route
             path="/user/profile" 
             element={<Profile />} 
