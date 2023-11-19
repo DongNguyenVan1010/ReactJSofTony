@@ -26,6 +26,11 @@ import Bio from "./pages/account/Bio";
 import Invoice from "./pages/account/Invoice";
 import UserDetail from "./pages/account/UserDetail";
 import TestRefulApi from "./pages/TestRefulApi";
+import Loading from './components/Loading';
+import Error400 from "./components/modal/Error400";
+import Error404 from "./components/modal/Error404";
+import Error500 from "./components/modal/Error500";
+import ModalError from './components/modal/ModalError';
 
 // react component or function react component
 function App() {
@@ -193,6 +198,16 @@ function App() {
       <br />
       <br />
       <br />
+
+      <Loading />
+
+      <Error400 />
+
+      <Error404 />
+
+      <Error500 />
+
+      <ModalError />
     </>
   );
 }

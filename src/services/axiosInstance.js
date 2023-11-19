@@ -1,5 +1,8 @@
 import axios from 'axios';
+import { store } from '../store';
 
+// actions
+import * as appActions from '../redux/app.action';
 
 export const axiosInstance = axios.create({
   baseURL: 'http://localhost:3000/api',
@@ -13,6 +16,7 @@ axiosInstance.interceptors.request.use(function (config) {
   console.log('request: ', config);
   if(config.showLoading) {
     // show loading ...
+    store.dispatch(appActions.setLoading(true))
   }
 
   const access_token = window.localStorage.getItem('access_token');
@@ -30,12 +34,19 @@ axiosInstance.interceptors.request.use(function (config) {
 // Add a response interceptor
 axiosInstance.interceptors.response.use(function (response) {
   console.log('response: ', response)
-  // Any status code that lie within the range of 2xx cause this function to trigger
-  // Do something with response data
+  if(response.config.showLoading) {
+    store.dispatch(appActions.setLoading(false))
+  }
+
   return response;
 }, async function (error) {
-
   console.log('response error: ', error)
+
+  // handle loading
+  if(error.config.showLoading) {
+    store.dispatch(appActions.setLoading(false))
+  }
+
   // handle timeout
   if(error.code === "ECONNABORTED") {
     // code logic
@@ -47,12 +58,22 @@ axiosInstance.interceptors.response.use(function (response) {
   switch (error.response?.status) {
     case 400: {
       // code logic
-      console.log('400')
+      // store.dispatch(appActions.setStatus(400))
+      store.dispatch(appActions.showModalError({
+        isShow: true,
+        title: 400,
+        content: 'xxxxx'
+      }))
       break;
     }
     case 500: {
       // code logic
-      console.log('500')
+      // store.dispatch(appActions.setStatus(500))
+      store.dispatch(appActions.showModalError({
+        isShow: true,
+        title: 500,
+        content: 'xxxxx'
+      }))
       break;
     }
     case 401: {
@@ -80,6 +101,6 @@ axiosInstance.interceptors.response.use(function (response) {
     default: 
       break;
   }
- 
+
   return Promise.reject(error);
 });
